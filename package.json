@@ -4,8 +4,11 @@
   "private": true,
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "cross-env": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router": "^6.22.0",
+    "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
     "workbox-background-sync": "^6.6.0",
     "workbox-broadcast-update": "^6.6.0",
@@ -21,7 +24,8 @@
     "workbox-streams": "^6.6.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env HTTPS=true SSL_CRT_FILE=./rootCA.pem SSL_KEY_FILE=./rootCA-key.pem react-scripts start",
+    "start:prd": "cross-env HTTPS=true SSL_CRT_FILE=./pwa.pem SSL_KEY_FILE=./pwa-key.pem REACT_APP_NODE_ENV=prd react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
