@@ -1,0 +1,290 @@
+@import "/src/assets/fonts/font.css";
+
+/* 공통 */
+#root {
+    height: 100%;
+}
+
+.container {
+    max-width: 600px;
+    padding: 0;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 100%;
+    border: 1px solid black;
+    font-family: HanwhaGothicEL;
+    font-size: 16px;
+}
+
+.gnb ul {
+    display: flex;
+}
+
+.gnb ul li {
+    margin-right: 30px;
+}
+
+.content-left {
+    display: flex;
+}
+
+.content-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-center {
+    display: flex;
+    justify-content: center;
+}
+
+.content-right {
+    display: flex;
+    justify-content: right;
+}
+
+.content-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-14 {
+    margin-top: 14px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-14 {
+    margin-bottom: 14px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mr-14 {
+    margin-right: 14px;
+}
+
+.ml-14 {
+    margin-left: 14px;
+}
+
+.p-24 {
+    padding: 24px;
+}
+
+.f-b {
+    font-family: "Noto Sans KR Black";
+}
+
+.f-m {
+    font-family: "Noto Sans KR Medium";
+}
+
+.f-l {
+    font-family: "Noto Sans KR Light";
+}
+
+.f-eb {
+    font-family: "Noto Sans KR ExtraBold";
+}
+
+.f-14 {
+    font-size: 14px;
+}
+
+.f-16 {
+    font-size: 16px;
+}
+
+.hidden {
+    display: none;
+}
+
+.red-btn {
+    background-color: #da3238;
+    border: solid 1px #da3238;
+    color: #fff;
+    width: 82px;
+    height: 40px;
+    margin-left: 10px;
+    font-size: 14px;
+    font-family: "Noto Sans KR ExtraBold";
+    line-height: 38px;
+}
+
+.white-btn-s {
+    width: 62px;
+    height: 32px;
+    background-color: #fff;
+    border: solid 1px #d4d4d4;
+    color: #222;
+    font-family: "Noto Sans KR SemiBold";
+    font-size: 16px;
+}
+
+.black-btn-s {
+    width: 62px;
+    height: 32px;
+    background-color: black;
+    border: 0;
+    color: #fff;
+    font-family: "Noto Sans KR SemiBold";
+    font-size: 16px;
+}
+/*공통*/
+
+/* /message 메세지 작성*/
+.msg-wrap {
+    padding: 0px 20px;
+}
+
+.msg-content {
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0px;
+    border: solid 1px #d4d4d4;
+}
+
+.msg-camera-btn {
+    width: 100%;
+    min-height: 60px;
+    background-color: #fff;
+    border: solid 1px #d4d4d4;
+    color: #222;
+    font-family: "Noto Sans KR SemiBold";
+    font-size: 16px;
+}
+
+.msg-attach-span {
+    position: relative;
+}
+
+.msg-attach-span::before {
+    content: url("/src/assets/icon/file-earmark.svg");
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0px 5px 5px 0px;
+    vertical-align: middle;
+}
+
+.msg-camera-span {
+    position: relative;
+}
+
+.msg-camera-span::before {
+    content: url("/src/assets/icon/camera.svg");
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0px 5px 5px 0px;
+    vertical-align: middle;
+}
+
+.msg-video-span {
+    position: relative;
+}
+
+.msg-video-span::before {
+    content: url("/src/assets/icon/camera-video.svg");
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0px 5px 5px 0px;
+    vertical-align: middle;
+}
+
+.msg-voice-btn {
+    width: 100%;
+    min-height: 60px;
+    background-color: #fff;
+    border: solid 1px #d4d4d4;
+    color: #222;
+    font-family: "Noto Sans KR SemiBold";
+    font-size: 16px;
+    position: relative;
+}
+
+.msg-voice-span {
+    position: relative;
+}
+
+.msg-voice-span::before {
+    content: url("/src/assets/icon/mic.svg");
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin: 0px 5px 5px 0px;
+    vertical-align: middle;
+}
+
+.msg-receiver-wrap {
+}
+
+.receiver-add-btn {
+    background-color: #f5f6f7;
+    border: 1px solid #e3e3e3;
+    font-family: "Noto Sans KR SemiBold";
+    font-size: 14px;
+    min-height: 32px;
+}
+
+.receiver-add-span {
+    position: relative;
+}
+
+.receiver-add-span::before {
+    content: url("/src/assets/icon/person-plus.svg");
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: -1px 10px 1px 0px;
+    vertical-align: middle;
+}
+
+.msg-temp-save-btn {
+    width: 100%;
+    background-color: #fff;
+    border: solid 1px #d4d4d4;
+    color: #222;
+    min-height: 60px;
+    font-family: "Noto Sans KR SemiBold";
+    font-size: 16px;
+}
+
+.msg-save-btn {
+    width: 100%;
+    background-color: #f60;
+    border: 0;
+    color: #fff;
+    min-height: 60px;
+    font-family: "Noto Sans KR SemiBold";
+    font-size: 16px;
+}
+
+/* /message 메세지 작성*/

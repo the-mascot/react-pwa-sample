@@ -6,7 +6,7 @@ const Nav = () => {
         <nav className="gnb">
             <ul>
                 <li>
-                    <Link to="/vision">비젼</Link>
+                    <Link to="/message">메세지 작성하기</Link>
                 </li>
                 <li>
                     <Link to="/media">미디어</Link>

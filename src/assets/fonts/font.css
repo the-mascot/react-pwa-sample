@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'HanwhaGothicB';
+    src: url('/src/assets/fonts/HanwhaGothicB.woff2') format("woff2");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'HanwhaGothicEL';
+    src: url('/src/assets/fonts/HanwhaGothicEL.woff2') format("woff2");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'HanwhaGothicL';
+    src: url('/src/assets/fonts/HanwhaGothicL.woff2') format("woff2");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'HanwhaGothicR';
+    src: url('/src/assets/fonts/HanwhaGothicR.woff2') format("woff2");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'HanwhaGothicT';
+    src: url('/src/assets/fonts/HanwhaGothicT.woff2') format("woff2");
+    font-style: normal;
+    font-weight: normal;
+}
