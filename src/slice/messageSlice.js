@@ -15,8 +15,8 @@ const messageSlice = createSlice({
     initialState,
     reducers: {
         saveMessage(state, action) {
-            console.log(state);
-            console.log(action);
+            console.log('state', state);
+            console.log('action', action);
         }
     }
 })

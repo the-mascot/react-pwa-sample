@@ -1,15 +1,14 @@
 import {useDispatch} from "react-redux";
 import {saveMessage} from "../slice/messageSlice";
-import handleSubmit from "redux-form/lib/handleSubmit";
 
 const Message = () => {
     const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('submit');
+        dispatch(saveMessage(e.target));
         console.log(e);
-        // useDispatch()
+        console.log("h");
     }
 
     const handleFileChange = (e) => {
@@ -34,7 +33,7 @@ const Message = () => {
 
     return (
         <div className="msg-wrap">
-            <form id="msgForm" onSubmit={ data => handleSubmit(data) }>
+            <form id="msgForm" onSubmit={ handleSubmit }>
                 <div>
                     <label htmlFor="content">메세지 보내기</label>
                     <textarea id="content" className="msg-content mt-2" name="content" rows="5" placeholder="내용을 입력해주세요."/>
