@@ -1,14 +1,15 @@
-import {useDispatch} from "react-redux";
-import {saveMessage} from "../slice/messageSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {postMessage} from "../slice/messageSlice";
+import AlertModal from "../components/AlertModal";
+import {modalToggle} from "../slice/commonSlice";
 
 const Message = () => {
     const dispatch = useDispatch();
-
+    const showModal = useSelector(state => state.common.showModal);
+    useSelector(state => console.log(state));
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(saveMessage(e.target));
-        console.log(e);
-        console.log("h");
+        dispatch(postMessage(e.target));
     }
 
     const handleFileChange = (e) => {
@@ -28,7 +29,11 @@ const Message = () => {
     }
 
     const handleAttachClick = () => {
-        document.getElementById('attachFile').click();
+        document.getElementById('attachFiles').click();
+    }
+
+    const handleReceiverClick = () =>{
+        dispatch(modalToggle({ show: true, message: 'Hello' }));
     }
 
     return (
@@ -54,14 +59,14 @@ const Message = () => {
                         <span className="msg-voice-span">녹음하기</span>
                     </button>
                 </div>
-                <input type="file" id="attachFile" name="attachFile" className="hidden" accept="image/*, audio/*, vedio/*"  onChange={handleFileChange} multiple />
+                <input type="file" id="attachFiles" name="attachFiles" className="hidden" accept="image/*, audio/*, vedio/*"  onChange={handleFileChange} multiple />
                 <input type="file" id="imageFile" name="imageFile" className="hidden" accept="image/*" onChange={handleFileChange} />
                 <input type="file" id="videoFile" name="videoFile"  className="hidden" accept="video/*" onChange={handleFileChange} />
                 <input type="file" id="voiceFile" name="voiceFile" className="hidden" accept="audio/*" onChange={handleFileChange} />
                 <div className="msg-receiver-wrap mt-3">
                     <div className="content-between">
                         <span>받는사람</span>
-                        <button className="receiver-add-btn">
+                        <button type="button" className="receiver-add-btn" onClick={handleReceiverClick}>
                             <span className="receiver-add-span">수신인 추가</span>
                         </button>
                     </div>
@@ -70,6 +75,7 @@ const Message = () => {
                     <button type="button" className="msg-temp-save-btn me-1">임시저장</button>
                     <button type="submit" className="msg-save-btn ms-1">저장</button>
                 </div>
+                {showModal && <AlertModal />}
             </form>
         </div>
     );

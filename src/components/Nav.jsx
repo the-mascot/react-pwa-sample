@@ -14,6 +14,9 @@ const Nav = () => {
                 <li>
                     <Link to="/notification">노티 테스트</Link>
                 </li>
+                <li>
+                    <Link to="/camera">카메라</Link>
+                </li>
             </ul>
         </nav>
     );

@@ -4,6 +4,7 @@ import Message from "../pages/Message";
 import MediaDevice from "../pages/MediaDevice";
 import NotificationTest from "../pages/NotifiactionTest";
 import Layout from "../pages/Layout";
+import Camera from "../pages/Camera";
 
 const router = createBrowserRouter([
     {
@@ -24,9 +25,13 @@ const router = createBrowserRouter([
             {
                 path: "/notification",
                 element: <NotificationTest />
-            }
+            },
         ]
-    }
+    },
+    {
+        path: "/camera",
+        element: <Camera />
+    },
 ]);
 
 export default router;
