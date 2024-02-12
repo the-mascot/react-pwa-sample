@@ -1,10 +1,16 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
+import AlertModal from "../components/AlertModal";
+import {useDispatch} from "react-redux";
+import {modalToggle} from "./cameraSlice";
+import receiver from "../components/Receiver";
 
 const initialState = {
     loading: '',
     success: false,
     error: null,
+    showReceiver: false,
+    receivers: [],
 }
 
 export const postMessage = createAsyncThunk(
@@ -26,7 +32,17 @@ export const postMessage = createAsyncThunk(
 const messageSlice = createSlice({
     name: "messageSlice",
     initialState,
-    reducers: {},
+    reducers: {
+        receiverToggle (state) {
+            state.showReceiver = !state.showReceiver;
+        },
+        addReceiver (state, action) {
+            state.receivers.push(action.payload.receiver);
+        },
+        deleteReceiver (state, action) {
+            state.receivers = action.payload;
+        }
+    },
     extraReducers: builder => {
         builder.addCase(postMessage.pending, (state) => {
             console.log('pending');
@@ -46,4 +62,5 @@ const messageSlice = createSlice({
     }
 });
 
+export const { receiverToggle, addReceiver, deleteReceiver } = messageSlice.actions;
 export default messageSlice.reducer;

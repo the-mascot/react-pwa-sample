@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from "react";
 import cameraIcon from "../assets/icon/camera-btn.svg";
 import shutter from "../assets/sound/shutter.mp3";
+import "../assets/css/camera-style.css"
 
 const Camera = () => {
     const [showVideo, setShowVideo] = useState(true);
@@ -55,7 +56,7 @@ const Camera = () => {
             {showVideo && stream && <img src={cameraIcon} className="shoot-btn" onClick={takePicture} />}
             <canvas ref={canvasRef} className="canvas" />
             {!showVideo &&
-                <div className="content-between">
+                <div className="canvas-btn-wrap content-between">
                     <button className="reshoot-btn" onClick={handleReshootClick}>다시찍기</button>
                     <button className="shoot-ok-btn">확인</button>
                 </div>

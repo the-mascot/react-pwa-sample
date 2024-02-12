@@ -17,5 +17,5 @@ const cameraSlice = createSlice({
     },
 });
 
-export const { setStream, setDeviceType, modalToggle } = cameraSlice.actions;
+export const { setDeviceType } = cameraSlice.actions;
 export default cameraSlice.reducer;

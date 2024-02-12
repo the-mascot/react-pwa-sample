@@ -3,8 +3,10 @@ import {createSlice} from "@reduxjs/toolkit";
 const initialState = {
     userAgent: '',
     deviceType: '',
+    isMobile: false,
     showModal: false,
-    modalMsg: ''
+    modalMsg: '',
+    showSlideMenu: false,
 }
 
 const commonSlice = createSlice({
@@ -18,6 +20,7 @@ const commonSlice = createSlice({
             if (state.userAgent.includes('Mobi') || state.userAgent.includes('Android') ||
                 state.userAgent.includes('iPhone') || state.userAgent.includes('iPad') || state.userAgent.includes('iPod')) {
                 state.deviceType = 'Mobile';
+                state.isMobile = true;
             } else {
                 state.deviceType = 'Computer';
             }
@@ -25,9 +28,12 @@ const commonSlice = createSlice({
         modalToggle (state, action) {
             state.modalMsg = action.payload.message;
             state.showModal = action.payload.show;
-        }
+        },
+        slideMenuToggle (state) {
+            state.showSlideMenu = !state.showSlideMenu;
+        },
     },
 });
 
-export const { setUserAgent, setDeviceType, modalToggle } = commonSlice.actions;
+export const { setUserAgent, setDeviceType, modalToggle, slideMenuToggle, upSlideToggle } = commonSlice.actions;
 export default commonSlice.reducer;

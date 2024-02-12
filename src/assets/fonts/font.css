@@ -1,34 +1,62 @@
 @font-face {
-    font-family: 'HanwhaGothicB';
-    src: url('/src/assets/fonts/HanwhaGothicB.woff2') format("woff2");
+    font-family: 'Noto Sans KR Thin';
+    src: url('/src/assets/fonts/noto-sans-kr/NotoSansKR-Light.ttf');
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
-    font-family: 'HanwhaGothicEL';
-    src: url('/src/assets/fonts/HanwhaGothicEL.woff2') format("woff2");
+    font-family: 'Noto Sans KR ExtraLight';
+    src: url('/src/assets/fonts/noto-sans-kr/NotoSansKR-ExtraLight.ttf');
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
-    font-family: 'HanwhaGothicL';
-    src: url('/src/assets/fonts/HanwhaGothicL.woff2') format("woff2");
+    font-family: 'Noto Sans KR Light';
+    src: url('/src/assets/fonts/noto-sans-kr/NotoSansKR-Light.ttf');
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
-    font-family: 'HanwhaGothicR';
-    src: url('/src/assets/fonts/HanwhaGothicR.woff2') format("woff2");
+    font-family: 'Noto Sans KR Regular';
+    src: url('/src/assets/fonts/noto-sans-kr/NotoSansKR-Regular.ttf');
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
-    font-family: 'HanwhaGothicT';
-    src: url('/src/assets/fonts/HanwhaGothicT.woff2') format("woff2");
+    font-family: 'Noto Sans KR Medium';
+    src: url('/src/assets/fonts/noto-sans-kr/NotoSansKR-Medium.ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR SemiBold';
+    src: url('/src/assets/fonts/noto-sans-kr/NotoSansKR-SemiBold.ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR Bold';
+    src: url('/src/assets/fonts/noto-sans-kr/NotoSansKR-Bold.ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR ExtraBold';
+    src: url('/src/assets/fonts/noto-sans-kr/NotoSansKR-ExtraBold.ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Noto Sans KR Black';
+    src: url('/src/assets/fonts/noto-sans-kr/NotoSansKR-Black.ttf');
     font-style: normal;
     font-weight: normal;
 }
