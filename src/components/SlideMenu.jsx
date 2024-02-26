@@ -53,6 +53,18 @@ const SlideMenu = () => {
                     </ListItemButton>
                 </ListItem>
             </List>
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <CameraAltIcon />
+                        </ListItemIcon>
+                        <ListItemText>
+                            <Link to="/record">녹음하기</Link>
+                        </ListItemText>
+                    </ListItemButton>
+                </ListItem>
+            </List>
         </Box>
     );
 }

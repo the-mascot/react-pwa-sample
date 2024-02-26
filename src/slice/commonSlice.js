@@ -35,5 +35,5 @@ const commonSlice = createSlice({
     },
 });
 
-export const { setUserAgent, setDeviceType, modalToggle, slideMenuToggle, upSlideToggle } = commonSlice.actions;
+export const { setUserAgent, setDeviceType, modalToggle, slideMenuToggle, upSlideToggle, setContainerRef } = commonSlice.actions;
 export default commonSlice.reducer;

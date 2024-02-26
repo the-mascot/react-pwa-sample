@@ -5,6 +5,7 @@ import MediaDevice from "../pages/MediaDevice";
 import NotificationTest from "../pages/NotifiactionTest";
 import Layout from "../pages/Layout";
 import Camera from "../pages/Camera";
+import AudioRecord from "../pages/AudioRecord";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
                 path: "/notification",
                 element: <NotificationTest />
             },
+            {
+                path: "/record",
+                element: <AudioRecord />
+            }
         ]
     },
     {
