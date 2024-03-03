@@ -30,6 +30,10 @@ const router = createBrowserRouter([
             {
                 path: "/record",
                 element: <AudioRecord />
+            },
+            {
+                path: "/media",
+                element: <MediaDevice />
             }
         ]
     },

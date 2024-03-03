@@ -65,6 +65,18 @@ const SlideMenu = () => {
                     </ListItemButton>
                 </ListItem>
             </List>
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <CameraAltIcon />
+                        </ListItemIcon>
+                        <ListItemText>
+                            <Link to="/media">미디어</Link>
+                        </ListItemText>
+                    </ListItemButton>
+                </ListItem>
+            </List>
         </Box>
     );
 }

@@ -68,7 +68,7 @@ const Message = () => {
                 <input type="file" id="attachFiles" name="attachFiles" className="hidden" accept="=video/*" multiple onChange={handleFileChange} />
                 <input type="file" id="imageFile" name="imageFile" className="hidden" accept="image/*" capture="user" onChange={handleFileChange} />
                 <input type="file" id="videoFile" name="videoFile"  className="hidden" accept="video/*" capture="user" onChange={handleFileChange} />
-                <input type="file" id="voiceFile" name="voiceFile" className="hidden" accept="audio/*" maxLength="10" capture="user" onChange={handleFileChange} />
+                <input type="file" id="voiceFile" name="voiceFile" className="hidden" accept="audio/*" onChange={handleFileChange} />
                 <div className="content-between my-3">
                     <span className="f-r">받는사람</span>
                     <button type="button" className="receiver-add-btn" onClick={handleReceiverClick}>

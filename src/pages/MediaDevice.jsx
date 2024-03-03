@@ -1,84 +1,53 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, {useEffect, useRef} from 'react';
 
 const MediaDevice = () => {
     const videoRef = useRef(null);
-    const mediaRecorderRef = useRef(null);
-    const [isRecording, setIsRecording] = useState(false);
+    const audioRef = useRef(null);
+    const videoFileRef = useRef(null);
+    const voiceFileRef = useRef(null);
 
     useEffect(() => {
-        const openCamera = async () => {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-
-                if (videoRef.current) {
-                    videoRef.current.srcObject = stream;
-                    mediaRecorderRef.current = new MediaRecorder(stream);
-
-                    // 녹화 중일 때 데이터를 저장할 배열
-                    let chunks = [];
-
-                    // 녹화 중일 때 호출되는 이벤트 핸들러
-                    mediaRecorderRef.current.ondataavailable = (event) => {
-                        if (event.data.size > 0) {
-                            chunks.push(event.data);
-                        }
-                    };
-
-                    // 녹화가 중단될 때 호출되는 이벤트 핸들러
-                    mediaRecorderRef.current.onstop = () => {
-                        const blob = new Blob(chunks, { type: 'video/webm' });
-                        chunks = [];
-
-                        // 여기서 blob을 서버로 업로드하거나 다른 작업을 수행할 수 있습니다.
-                        console.log('녹화 완료:', blob);
-                    };
-                }
-            } catch (error) {
-                console.error('Error accessing camera:', error);
-            }
-        };
-
-        openCamera();
-
-        // Cleanup function to stop the camera and recorder when the component unmounts
         return () => {
-            if (videoRef.current) {
-                const stream = videoRef.current.srcObject;
-                if (stream) {
-                    const tracks = stream.getTracks();
-                    tracks.forEach(track => track.stop());
-                }
-            }
-            if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
-                mediaRecorderRef.current.stop();
+            if (videoRef !== null) {
+                URL.revokeObjectURL(videoRef); // 컴포넌트가 언마운트될 때 이전에 생성된 Blob URL 해제
             }
         };
-    }, []);
+    }, [videoRef]);
 
-    const startRecording = () => {
-        if (mediaRecorderRef.current) {
-            mediaRecorderRef.current.start();
-            setIsRecording(true);
+    const handleVoiceFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                if (audioRef.current) {
+                    audioRef.current.src = e.target.result;
+                }
+            };
+            reader.readAsDataURL(file);
         }
     };
 
-    const stopRecording = () => {
-        if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
-            mediaRecorderRef.current.stop();
-            setIsRecording(false);
+    const handleVideoFileChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const blobUrl = URL.createObjectURL(file);
+            if (blobUrl) {
+                videoRef.current.src = blobUrl;
+            }
         }
-    };
-
+    }
     return (
         <div>
-            <video ref={videoRef} autoPlay playsInline />
-            <div>
-                {isRecording ? (
-                    <button onClick={stopRecording}>녹화 중단</button>
-                ) : (
-                    <button onClick={startRecording}>녹화 시작</button>
-                )}
-            </div>
+            <button type="button" className="msg-camera-btn me-1" onClick={() => videoFileRef.current.click()}>
+                <span className="msg-video-span">동영상 찍기</span>
+            </button>
+            <button type="button" className="msg-camera-btn ms-1" onClick={() => voiceFileRef.current.click()}>
+                <span className="msg-voice-span">녹음하기</span>
+            </button>
+            <input type="file" id="voiceFile" name="voiceFile" className="hidden" accept="audio/*" onChange={handleVoiceFileChange} ref={voiceFileRef} />
+            <input type="file" id="videoFile" name="videoFile"  className="hidden" accept="video/*" onChange={handleVideoFileChange} ref={videoFileRef} />
+            <audio controls ref={audioRef} />
+            <video controls ref={videoRef} style={{ display: 'block', marginTop: '10px', maxHeight: '680px', maxWidth: '360px' }} />
         </div>
     );
 };
