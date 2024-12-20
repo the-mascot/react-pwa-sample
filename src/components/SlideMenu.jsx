@@ -11,7 +11,7 @@ const SlideMenu = () => {
 
     return (
         <Box
-            sx={{ width: 'auto' }}
+            sx={{ minWidth: '180px' }}
             role="presentation"
             onClick={() => dispatch(slideMenuToggle())}
             onKeyDown={() => dispatch(slideMenuToggle())}
@@ -23,11 +23,12 @@ const SlideMenu = () => {
                             <HomeIcon />
                         </ListItemIcon>
                         <ListItemText>
-                            <Link to="/">Home</Link>
+                            <Link to="/"><span className="f-m">Home</span></Link>
                         </ListItemText>
                     </ListItemButton>
                 </ListItem>
             </List>
+            <Divider component="div" />
             <List>
                 <ListItem disablePadding>
                     <ListItemButton>
@@ -35,12 +36,12 @@ const SlideMenu = () => {
                             <MailIcon />
                         </ListItemIcon>
                         <ListItemText>
-                            <Link to="/message">메세지 작성</Link>
+                            <Link to="/message"><span className="f-m">메세지 작성</span></Link>
                         </ListItemText>
                     </ListItemButton>
                 </ListItem>
             </List>
-            <Divider />
+            <Divider component="div" />
             <List>
                 <ListItem disablePadding>
                     <ListItemButton>
@@ -48,7 +49,31 @@ const SlideMenu = () => {
                             <CameraAltIcon />
                         </ListItemIcon>
                         <ListItemText>
-                            <Link to="/camera">찰영하기</Link>
+                            <Link to="/camera"><span className="f-m">찰영하기</span></Link>
+                        </ListItemText>
+                    </ListItemButton>
+                </ListItem>
+            </List>
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <CameraAltIcon />
+                        </ListItemIcon>
+                        <ListItemText>
+                            <Link to="/ocr/camera"><span className="f-m">OCR 촬영</span></Link>
+                        </ListItemText>
+                    </ListItemButton>
+                </ListItem>
+            </List>
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <CameraAltIcon />
+                        </ListItemIcon>
+                        <ListItemText>
+                            <Link to="/face/camera"><span className="f-m">안면인식 촬영</span></Link>
                         </ListItemText>
                     </ListItemButton>
                 </ListItem>
