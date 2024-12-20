@@ -4,7 +4,7 @@ import Message from "../pages/Message";
 import MediaDevice from "../pages/MediaDevice";
 import NotificationTest from "../pages/NotifiactionTest";
 import Layout from "../pages/Layout";
-import Camera from "../pages/Camera";
+import AudioRecord from "../pages/AudioRecord";
 import OcrCamera from 'src/pages/OcrCamera';
 import FaceCamera from 'src/pages/FaceCamera';
 
@@ -38,6 +38,14 @@ const router = createBrowserRouter([
         element: (
           <Layout>
               <NotificationTest />
+          </Layout>
+        )
+    },
+    {
+        path: "/record",
+        element: (
+          <Layout>
+              <AudioRecord />
           </Layout>
         )
     },

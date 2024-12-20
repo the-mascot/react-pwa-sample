@@ -2,6 +2,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {postMessage, receiverToggle} from "../slice/messageSlice";
 import Receiver from "../components/Receiver";
 import ChipBtn from "../components/ChipBtn";
+import {upSlideToggle} from "../slice/commonSlice";
+import {Slide} from "@mui/material";
 
 const Message = () => {
     const dispatch = useDispatch();
@@ -63,10 +65,10 @@ const Message = () => {
                         <span className="msg-voice-span">녹음하기</span>
                     </button>
                 </div>
-                <input type="file" id="attachFiles" name="attachFiles" className="hidden" accept="image/*, audio/*, vedio/*" onChange={handleFileChange} multiple />
+                <input type="file" id="attachFiles" name="attachFiles" className="hidden" accept="=video/*" multiple onChange={handleFileChange} />
                 <input type="file" id="imageFile" name="imageFile" className="hidden" accept="image/*" capture="user" onChange={handleFileChange} />
                 <input type="file" id="videoFile" name="videoFile"  className="hidden" accept="video/*" capture="user" onChange={handleFileChange} />
-                <input type="file" id="voiceFile" name="voiceFile" className="hidden" accept="audio/*" capture="user" onChange={handleFileChange} />
+                <input type="file" id="voiceFile" name="voiceFile" className="hidden" accept="audio/*" onChange={handleFileChange} />
                 <div className="content-between my-3">
                     <span className="f-r">받는사람</span>
                     <button type="button" className="receiver-add-btn" onClick={handleReceiverClick}>
