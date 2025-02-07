@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useCallback, useEffect, useRef } from 'react'
 import styled from "@emotion/styled";
 import styles from "src/assets/css/App.module.css";
 import { keyframes } from "@emotion/react";
@@ -8,6 +8,8 @@ import Face_chk_sucess from '../assets/img/face_chk_sucess.svg';
 import Check_off from '../assets/img/ico-check-off.svg';
 import Check_on from '../assets/img/ico-check-on.svg';
 import { CameraModule, FACING_MODE_TYPE } from 'src/scripts/camera';
+import Btn_camera from 'src/assets/img/btn-camera.svg';
+import { Button } from '@mui/material';
 
 export const arrow1 = keyframes`
     0% { fill: none; }
@@ -300,14 +302,49 @@ const Textinfo = styled.div<DivType>`
 	}
 `;
 
+const ButtonCameraIcon = styled.img`
+  z-index: 99999;
+	width: 100%;
+	position: absolute;
+	left:50%;
+	bottom:28px;
+	transform: translateX(-50%);
+	max-width: 100%;
+	overflow: hidden;
+	width: 56px;
+	height: 56px;
+	cursor: pointer;
+
+	@media (min-height: 500px) and (max-height: 580px){
+		bottom: 15px;
+	}
+	@media screen and (max-height: 500px){
+		bottom: 10px;
+	}
+`;
+
 export default function FaceCamera() {
   const videoRef = useRef<HTMLVideoElement>(null);
-
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     if (videoRef.current) {
       CameraModule.initializeCamera(videoRef.current, FACING_MODE_TYPE.FRONT);
     }
+
+    return () => {
+      CameraModule.close();
+    }
   },[])
+
+  const handleTakeCamera = useCallback(() => {
+    console.log('===== [handleTakeCamera 동작] =====');
+    CameraModule.takeCamera();
+  }, []);
+
+  const handleStopCamera = useCallback(() => {
+    console.log('===== [handleStopCamera 동작] =====');
+    CameraModule.stopCamera();
+  }, []);
 
   return (
     <div className={styles.wrap}>
@@ -317,7 +354,6 @@ export default function FaceCamera() {
           <Maskimg>
             <FaceChkSucess />
             <CameraVideo ref={videoRef} playsInline autoPlay />
-
             <FaceArrow width={window.innerWidth} height={window.innerHeight}>
               <svg className="FaceArrowLeft" width="66" height="64" viewBox="0 0 66 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="arrow1" fill-rule="evenodd" clip-rule="evenodd" d="M65.699 6.28486C66.0939 6.67089 66.1012 7.30402 65.7151 7.69898L42.3747 31.5792C42.3746 31.5793 42.3745 31.5794 42.3744 31.5795C42.1352 31.8255 42 32.1577 42 32.5044C42 32.8516 42.1352 33.1837 42.3742 33.4296C42.3743 33.4297 42.3745 33.4299 42.3747 33.4301L65.715 57.3009C66.1011 57.6958 66.094 58.3289 65.6991 58.715C65.3042 59.1011 64.6711 59.094 64.285 58.6991L40.943 34.8266L40.9414 34.8249C40.3371 34.2041 40 33.3707 40 32.5044C40 31.6385 40.3372 30.8051 40.9414 30.1843L40.9429 30.1828L64.2849 6.30102C64.6709 5.90606 65.304 5.89882 65.699 6.28486Z" />
@@ -334,13 +370,14 @@ export default function FaceCamera() {
 
             <TextTitle>왼쪽 얼굴 촬영</TextTitle>
 
+            <Button style={{ zIndex: 99999 }} onClick={handleStopCamera}>정지</Button>
             <Textinfo width={window.innerWidth} height={window.innerHeight}>
               원활한 촬영을 위해 초록색을 유지해 주시고, 빨간색은 얼굴 촬영이 진행되지 않으니 유의해 주세요.
             </Textinfo>
           </Maskimg>
         </SubBox>
       </BgRoot>
-
+      <ButtonCameraIcon src={Btn_camera} alt='Camera Action' onClick={handleTakeCamera} />
     </div>
   );
 };

@@ -152,18 +152,13 @@ export default function OcrCamera() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    console.log(window.navigator.userAgent);
     if (videoRef.current) {
       CameraModule.initializeCamera(videoRef.current, FACING_MODE_TYPE.REAR);
     }
 
     return () => {
-      if (videoRef.current && videoRef.current.srcObject) {
-        const stream: MediaStream = videoRef.current.srcObject as MediaStream;
-        if (stream) {
-          const tracks = stream.getTracks();
-          tracks.forEach((track) => track.stop());
-        }
-      }
+      CameraModule.close();
     }
   },[])
 

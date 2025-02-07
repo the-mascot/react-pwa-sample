@@ -102,6 +102,18 @@ const SlideMenu = () => {
                     </ListItemButton>
                 </ListItem>
             </List>
+            <List>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <ListItemIcon>
+                            <CameraAltIcon />
+                        </ListItemIcon>
+                        <ListItemText>
+                            <Link to="/riv">비대면인증 호출 테스트</Link>
+                        </ListItemText>
+                    </ListItemButton>
+                </ListItem>
+            </List>
         </Box>
     );
 }

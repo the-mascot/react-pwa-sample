@@ -7,6 +7,7 @@ import Layout from "../pages/Layout";
 import AudioRecord from "../pages/AudioRecord";
 import OcrCamera from 'src/pages/OcrCamera';
 import FaceCamera from 'src/pages/FaceCamera';
+import RivAnimationFrameCall from 'src/pages/RivAnimationFrameCall';
 
 const router = createBrowserRouter([
     {
@@ -54,8 +55,12 @@ const router = createBrowserRouter([
         element: <OcrCamera />
     },
     {
-        path: "face/camera",
+        path: "/face/camera",
         element: <FaceCamera />
+    },
+    {
+        path: "/riv",
+        element: <RivAnimationFrameCall />
     }
 ]);
 
